@@ -33,7 +33,7 @@ Install two gRPC package, one is grpcio, another is grpcio-tools.
 $ python -m pip install grpcio
 $ python -m pip install grpcio-tools
 ```
-If you already install, using command`pip list` to check package is exist.
+If you already install, using command`pip list` to check package is exist.<br />
 ![](https://i.imgur.com/AmLlrIk.png)
 
 **Server run**<br />
