@@ -83,18 +83,18 @@ service Greeter {
 $ python -m grpc_tools.protoc -I../../protos --python_out=. --grpc_python_out=. ../../protos/helloworld.proto
 ```
 
-**Update and run the application(server/client)**
+**Update and run the application(server/client)**<br />
 I modify the application Python code so that I can observe the change.<br />
 `server.py`(path:`D:\grpc\examples\python\helloworld\server.py`)<br />
 (Before)<br />
-```python=
+```py
 class Greeter(helloworld_pb2_grpc.GreeterServicer):
 
     def SayHello(self, request, context):
         return helloworld_pb2.HelloReply(message='Hello, %s!' % request.name)
 ```
 (After)<br />
-```python=
+```py
 class Greeter(helloworld_pb2_grpc.GreeterServicer):
 
     def SayHello(self, request, context):
@@ -106,7 +106,7 @@ class Greeter(helloworld_pb2_grpc.GreeterServicer):
 
 `client.py`(path:`D:\grpc\examples\python\helloworld\client.py`)<br />
 (Before)<br />
-```python=
+```py
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = helloworld_pb2_grpc.GreeterStub(channel)
@@ -115,7 +115,7 @@ def run():
         response = 
 ```
 (After)<br />
-```python=
+```py
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = helloworld_pb2_grpc.GreeterStub(channel)
@@ -125,7 +125,7 @@ def run():
         print("Greeter client received: " + response.message)
 ```
 **Run server/client**<br />
-```typescript=
+```py
 $ python greeter_server.py
 $ python greeter_client.py
 ```
